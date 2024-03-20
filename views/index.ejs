@@ -15,6 +15,16 @@
     <div>
       <h3>Summoner Name: <%= user.gameName %>#<%= user["tagLine"] %></h3>
       <h3>Level: <%= summoner.summonerLevel %></h3>
+      <hr />
+      <h3>Ranked Solo:</h3>
+      <h3>Wins: <%= rankedStatus[0].wins %> Loses: <%= rankedStatus[0].losses %></h3>
+      <h3>Ratio: <%= Math.floor((rankedStatus[0].wins * 100) / (rankedStatus[0].wins + rankedStatus[0].losses)) %>%</h3>
+      <h3>Tier: <%= rankedStatus[0].tier %> <%= rankedStatus[0].rank %> <%= rankedStatus[0].leaguePoints %>LP</h3>
+      <hr />
+      <h3>Ranked Flex:</h3>
+      <h3>Wins: <%= rankedStatus[1].wins %> Loses: <%= rankedStatus[1].losses %></h3>
+      <h3>Ratio: <%= Math.floor((rankedStatus[1].wins * 100) / (rankedStatus[1].wins + rankedStatus[1].losses)) %>%</h3>
+      <h3>Tier: <%= rankedStatus[1].tier %> <%= rankedStatus[1].rank %> <%= rankedStatus[1].leaguePoints %>LP</h3>
     </div>
   </div>
 <% } else { %>
@@ -23,22 +33,26 @@
 <div class="flex-container">
   <div class="match-history">
     <% if (locals.participants) { %>
-      <% for (var i = 0; i < participants.length; i++) { %>
+      <% for (let i = 0; i < participants.length; i++) { %>
         <div id="<%= i %>" class="side-grid">
-          <% for (var j = 0; j < participants[i].info.participants.length; j++) { %>
+          <% for (let j = 0; j < participants[i].info.participants.length; j++) { %>
             <% if (user.puuid == participants[i].info.participants[j].puuid && participants[i].info.participants[j].win == true) { %>
+              <% let wins = 0; %>
+              <% wins++; %>
               <script>
                 document.querySelector("[id='<%= i %>']").classList.add("win");
               </script>
             <% } else if (user.puuid == participants[i].info.participants[j].puuid && participants[i].info.participants[j].win == false) { %>
+              <% let defeats = 0; %>
+              <% defeats++; %>
               <script>
                 document.querySelector("[id='<%= i %>']").classList.add("defeat");
               </script>
             <% } %>
-            <% if (j % 2 === 0) { %>
-              <p class="left-section"><%= participants[i].info.participants[j].summonerName %></p>
+            <% if (j % 2 == 0) { %>
+              <div class="player-<%= j %>"><img class="champ-icon" src="./assets/images/champion/<%= participants[i].info.participants[j].championName %>.png" alt="champion-logo"> <%= participants[i].info.participants[j].summonerName %></div>
             <% } else { %>
-              <p class="right-section"><%= participants[i].info.participants[j].summonerName %></p>
+              <div class="player-<%= j %>"><img class="champ-icon" src="./assets/images/champion/<%= participants[i].info.participants[j].championName %>.png" alt="champion-logo"> <%= participants[i].info.participants[j].summonerName %></div>
             <% } %>
           <% } %>
         </div>
