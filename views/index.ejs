@@ -1,0 +1,52 @@
+<%- include("./partials/header.ejs") %>
+<form class="form" method="POST" action="/profile">
+  <h2 class="title">Search Player:</h2>
+  <input name="gameName" class="search-input" placeholder="user" type="text">
+  <input name="tagLine" class="search-input" placeholder="#tag" type="text">
+  <button class="search-button" formaction="/profile" type="submit">Search</button>
+</form>
+<button class="menu-button"><span class="material-symbols-outlined">menu</span></button>
+<hr />
+<% if (locals.user) { %>
+  <div class="player-statistics">
+    <div class="flex-container">
+      <img class="summoner-icon" src="https://ddragon.leagueoflegends.com/cdn/14.6.1/img/profileicon/<%= summoner.profileIconId %>.png" alt="summoner-image">
+    </div>
+    <div>
+      <h3>Summoner Name: <%= user.gameName %>#<%= user["tagLine"] %></h3>
+      <h3>Level: <%= summoner.summonerLevel %></h3>
+    </div>
+  </div>
+<% } else { %>
+  <h2>...</h2>
+<% } %>
+<div class="flex-container">
+  <div class="match-history">
+    <% if (locals.participants) { %>
+      <% for (var i = 0; i < participants.length; i++) { %>
+        <div id="<%= i %>" class="side-grid">
+          <% for (var j = 0; j < participants[i].info.participants.length; j++) { %>
+            <% if (user.puuid == participants[i].info.participants[j].puuid && participants[i].info.participants[j].win == true) { %>
+              <script>
+                document.querySelector("[id='<%= i %>']").classList.add("win");
+              </script>
+            <% } else if (user.puuid == participants[i].info.participants[j].puuid && participants[i].info.participants[j].win == false) { %>
+              <script>
+                document.querySelector("[id='<%= i %>']").classList.add("defeat");
+              </script>
+            <% } %>
+            <% if (j % 2 === 0) { %>
+              <p class="left-section"><%= participants[i].info.participants[j].summonerName %></p>
+            <% } else { %>
+              <p class="right-section"><%= participants[i].info.participants[j].summonerName %></p>
+            <% } %>
+          <% } %>
+        </div>
+      <% } %>
+    <% } %>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./src/index.js"></script>
+</body>
