@@ -6,7 +6,7 @@ const PORT = 3000;
 const API_KEY = "RGAPI-b19b7ed1-353e-408e-828d-aeeaa1983e4b";
 process.env.API_KEY;
 
-const matchCount = 3;
+const matchCount = 10;
 
 APP.use(express.static("public"));
 APP.use(express.urlencoded({ extended: true }));

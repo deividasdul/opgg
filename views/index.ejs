@@ -19,11 +19,13 @@
       <h3>Ranked Solo:</h3>
       <h3>Wins: <%= rankedStatus[0].wins %> Loses: <%= rankedStatus[0].losses %></h3>
       <h3>Ratio: <%= Math.floor((rankedStatus[0].wins * 100) / (rankedStatus[0].wins + rankedStatus[0].losses)) %>%</h3>
+      <img class="tier-img" src="./assets/images/tier/<%= rankedStatus[0].tier %>.png" alt="tier-image">
       <h3>Tier: <%= rankedStatus[0].tier %> <%= rankedStatus[0].rank %> <%= rankedStatus[0].leaguePoints %>LP</h3>
       <hr />
       <h3>Ranked Flex:</h3>
       <h3>Wins: <%= rankedStatus[1].wins %> Loses: <%= rankedStatus[1].losses %></h3>
       <h3>Ratio: <%= Math.floor((rankedStatus[1].wins * 100) / (rankedStatus[1].wins + rankedStatus[1].losses)) %>%</h3>
+      <img class="tier-img" src="./assets/images/tier/<%= rankedStatus[1].tier %>.png" alt="tier-image">
       <h3>Tier: <%= rankedStatus[1].tier %> <%= rankedStatus[1].rank %> <%= rankedStatus[1].leaguePoints %>LP</h3>
     </div>
   </div>
