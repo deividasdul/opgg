@@ -27,11 +27,12 @@ Gain insights into a player's ranked performance, including their current rank, 
 
 # **Roadmap**
 
-**Enhanced Design:** Improve the overall website design and user interface to enhance usability and visual appeal.
-**Navbar Integration:** Implement a functional navigation bar that provides quick access to various statistics, such as champion stats, leaderboards, and player profiles.
-**Item Build Display:** Incorporate item build information into the match history view, allowing users to see the items purchased by each player during a match.
-**Top Champions Display:** Showcase a player's top played champions on their profile page, highlighting their mastery and playstyle preferences.
+**Enhanced Design:** Improve the overall website design and user interface to enhance usability and visual appeal.  
+**Navbar Integration:** Implement a functional navigation bar that provides quick access to various statistics, such as champion stats, leaderboards, and player profiles.  
+**Item Build Display:** Incorporate item build information into the match history view, allowing users to see the items purchased by each player during a match.  
+**Top Champions Display:** Showcase a player's top played champions on their profile page, highlighting their mastery and playstyle preferences.  
 **Leaderboard Functionality:** Develop a robust leaderboard system that ranks players based on different criteria, such as rank, win rate, and champion mastery points.
+
 
 # **Contribution Guidelines**
 
